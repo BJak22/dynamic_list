@@ -7,6 +7,9 @@ using namespace std;
 template<typename T>
 int container<T>::range = 0;
 
+template<typename T>
+container<T>* container<T>::head = NULL;
+
 template <typename T>
 ostream& operator<< (ostream& b, const container<T>& p) {
 	b << p.value;
@@ -32,10 +35,10 @@ container<T>& container<T>::operator =(container& n_value) {
 }
 
 template<typename T>
-container<T>::container() :value(0), head(NULL), next(NULL), pointer(NULL) {}
+container<T>::container() :value(0), next(NULL), pointer(NULL) {}
 
 template<typename T>
-container<T>::container(T n_value) :value(n_value), head(NULL), next(NULL), pointer(NULL) {}
+container<T>::container(T n_value) :value(n_value), next(NULL), pointer(NULL) {}
 
 template<typename T>
 container<T>::~container() { 
@@ -46,13 +49,11 @@ template<typename T>
 void container<T>::Insert(T n_value) {
 	if (head == NULL) {
 		head = pointer = new container;
-		pointer->head = head;
 		pointer->value = n_value;
 	}
 	else {
 		range++;
 		pointer->next = new container;
-		pointer->next->head = pointer->head;//every node has pointer to the start of container
 		pointer = pointer->next;
 		pointer->value = n_value;
 	}

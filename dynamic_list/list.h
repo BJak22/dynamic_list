@@ -7,7 +7,7 @@ template<typename T>
 class container {
 	static int range;
 	container* next;
-	container* head;
+	static container* head;
 	container* pointer;
 	T value;
 public:
