@@ -4,7 +4,7 @@ which make it easier to use. This project was made by me for some training.
 
 Methods implemented in temple of class container:
 - Insert - add new item to list
-- read_all - show value of every node\n
+- read_all - show value of every node
 
 I've also implemented oveloded operators [], =, >> and <<
 with some basic exception handling.
